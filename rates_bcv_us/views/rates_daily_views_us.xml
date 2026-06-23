@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rates_daily_us_tree" model="ir.ui.view">
+        <field name="name">rates.daily.tree</field>
+        <field name="model">rates.daily.us</field>
+        <field name="arch" type="xml">
+            <list string="Tasas Diarias Us">
+                <field name="date"/>
+                <field name="currency_name"/>
+                <field name="name"/>
+                <field name="rate_value"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_rates_daily_us" model="ir.actions.act_window">
+        <field name="name">Consultar Tasas BCV - Original</field>
+        <field name="res_model">rates.daily.us</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_rates_bcv_root"  sequence="10"/>
+    <menuitem id="menu_rates_daily" parent="menu_rates_bcv_root" action="action_rates_daily_us" sequence="10"/>
+
+    <record id="view_rates_daily_us_form" model="ir.ui.view">
+        <field name="name">rates.daily.form</field>
+        <field name="model">rates.daily.us</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_sync_bcv" string="Sincronizar BCV" type="object" class="btn-primary"/>
+                    <button name="action_sync_bcv" string="Sincronizar BCV 2" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="currency_name"/>
+                        <field name="rate_value"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
