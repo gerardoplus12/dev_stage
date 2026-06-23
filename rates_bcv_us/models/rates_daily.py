@@ -14,7 +14,7 @@ class RatesDailyUs(models.Model):
 
     name = fields.Char(string='Referencia Name',
                        compute='_compute_name', store=True)
-    date = fields.Date(string='Fecha de Consulta',
+    date = fields.Date(string='Fecha de Consulta Del Servicio',
                        default=fields.Date.context_today, required=True)
     currency_name = fields.Selection([
         ('USD', 'Dólar (USD)'),
